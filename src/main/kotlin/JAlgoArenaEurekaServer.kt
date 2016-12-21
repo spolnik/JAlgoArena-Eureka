@@ -4,8 +4,8 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer
 
 @SpringBootApplication
 @EnableEurekaServer
-open class EurekaServer
+open class JAlgoArenaEurekaServer
 
 fun main(args: Array<String>) {
-    SpringApplication.run(EurekaServer::class.java, *args)
+    SpringApplication.run(JAlgoArenaEurekaServer::class.java, *args)
 }
