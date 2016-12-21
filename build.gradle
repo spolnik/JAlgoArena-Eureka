@@ -1,0 +1,42 @@
+buildscript {
+    ext {
+        kotlinVersion = '1.0.5-2'
+        springBootVersion = '1.4.2.RELEASE'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'org.springframework.boot'
+
+apply from: "$rootDir/gradle/versioning.gradle"
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    baseName = 'jalgoarena-eureka'
+    version = '1.0'
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+            'org.springframework.cloud:spring-cloud-starter-eureka-server',
+            "org.springframework.boot:spring-boot-starter-web"
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Camden.SR3"
+    }
+}
+
+
