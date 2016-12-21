@@ -29,8 +29,7 @@ jar {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
-            'org.springframework.cloud:spring-cloud-starter-eureka-server',
-            "org.springframework.boot:spring-boot-starter-web"
+            'org.springframework.cloud:spring-cloud-starter-eureka-server'
 }
 
 dependencyManagement {
