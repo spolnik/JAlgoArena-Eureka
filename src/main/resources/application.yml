@@ -4,7 +4,6 @@ server:
 eureka:
   instance:
     hostname: ${APP_NAME}.herokuapp.com
-    preferIpAddress: true
   client:
     registerWithEureka: false
     fetchRegistry: false
