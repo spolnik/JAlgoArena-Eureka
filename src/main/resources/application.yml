@@ -3,9 +3,11 @@ server:
 
 eureka:
   instance:
-    hostname: ${APP_NAME}.herokuapp.com
+    preferIpAddress: true
+  server:
+    enableSelfPreservation: false
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://jalgoarena-eureka.herokuapp.com/eureka/
