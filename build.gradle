@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        kotlinVersion = '1.0.5-2'
+        kotlinVersion = '1.0.6'
         springBootVersion = '1.4.2.RELEASE'
     }
 
@@ -50,4 +50,3 @@ task releaseZip(type: Zip, dependsOn: 'bootRepackage') {
     archiveName "JAlgoArena-Eureka-${version}.zip"
     destinationDir(file('build/libs'))
 }
-

@@ -2,11 +2,5 @@
   "name": "JAlgoArena Eureka Server",
   "description": "JAlgoArena Eureka Server project.",
   "website": "https://github.com/spolnik/jalgoarena-eureka",
-  "success_url": "/",
-  "env": {
-    "EUREKA_USER_PASSWORD": {
-      "description": "Password for the admin interface.",
-      "generator": "secret"
-    }
-  }
+  "success_url": "/"
 }
