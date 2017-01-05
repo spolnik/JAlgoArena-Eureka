@@ -1,2 +1,3 @@
 #!/bin/bash
-java -Dserver.port=5000 -jar jalgoarena-eureka-*.jar
+PORT=5000
+nohup java -jar jalgoarena-eureka-*.jar &
