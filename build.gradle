@@ -28,6 +28,7 @@ jar {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+            'org.springframework.cloud:spring-cloud-starter-hystrix-dashboard',
             'org.springframework.cloud:spring-cloud-starter-eureka-server'
 }
 
