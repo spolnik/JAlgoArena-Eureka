@@ -55,9 +55,9 @@ task releaseZip(type: Zip, dependsOn: 'bootRepackage') {
 }
 
 task buildDockerImage(type: Exec, dependsOn: 'bootRepackage') {
-    commandLine 'docker',  'build', '-t', 'spolnik/jalgoarena-eureka:latest', '-t', "spolnik/jalgoarena-eureka:${version}", '.'
+    commandLine 'docker',  'build', '-t', "spolnik/${rootProject.name}:latest", '-t', "spolnik/${rootProject.name}:${version}", '.'
 }
 
 task runAsContainer(type: Exec, dependsOn: 'buildDockerImage') {
-    commandLine 'docker', 'container', 'run', '-d', '-p', '5000:5000', 'spolnik/jalgoarena-eureka:latest'
+    commandLine 'docker', 'container', 'run', '-d', '-p', '5000:5000', "spolnik/${rootProject.name}:${version}"
 }
