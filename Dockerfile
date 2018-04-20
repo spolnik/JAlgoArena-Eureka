@@ -1,7 +1,7 @@
 FROM openjdk:8
 
 WORKDIR /app
-ADD build/libs/* /app/
+ADD build/libs/jalgoarena-eureka-*.jar /app/
 
 EXPOSE 5000
 

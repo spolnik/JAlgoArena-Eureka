@@ -53,3 +53,11 @@ task releaseZip(type: Zip, dependsOn: 'bootRepackage') {
     archiveName "JAlgoArena-Eureka-${version}.zip"
     destinationDir(file('build/libs'))
 }
+
+task buildDockerImage(type: Exec, dependsOn: 'bootRepackage') {
+    commandLine 'docker',  'build', '-t', 'spolnik/jalgoarena-eureka:latest', '-t', "spolnik/jalgoarena-eureka:${version}", '.'
+}
+
+task runAsContainer(type: Exec, dependsOn: 'buildDockerImage') {
+    commandLine 'docker', 'container', 'run', '-d', '-p', '5000:5000', 'spolnik/jalgoarena-eureka:latest'
+}
