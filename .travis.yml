@@ -1,21 +1,29 @@
+sudo: required
 language: Java
+services:
+  - docker
 jdk:
-- oraclejdk8
+  - oraclejdk8
 before_cache:
-- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 cache:
   directories:
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
 before_deploy:
-- "./gradlew releaseZip"
+  - "./gradlew releaseZip"
 deploy:
-  provider: releases
-  api_key:
-    secure: szOvA8ebcgVLl6vSiHCm2xkAPZ/2Cpna8Gc2lrUkIzblFcoEtmKsySiKXYruLqGA7G7vjHG6zExfea60eGUyP5QRdRvj6M0I9nIJlkHzkNccgDVLoPjNY8U3M7xIgRPoDtZ5QHwnC+mtxmzeotvovk8GYUZNmthi1EjChXTrsy3WFFDK0zQ0R96YLH/1EJ+vwHn22LCZx03ZJC6tOU/D7uoRSj9BcuzO0lSuc8Lh/E9o8Oj7NxLLMgca113BCMcS6I2h5pt2j0Bghww2Kry7OLc8PjZuh4FHVhHfdb5sklr+CzSldR62y2aC8ILz3QdxyBocwAUNRqdJkBRZGEyMHmoyirEDWJY88W7AEdKW2RVkyCdd9Z7U811NTU81gsl7xFIN8N+M8hKvaYUA/9Yp75pR4wl6aS1rEM9mL9JsvlE9SoFa0xgCirnStJIXeVaIecSR9kldXUJPJSgVKS589L1cDRXSQNbfab03uVDBj5ykk6Driiz7wCvjuQQ6WYz+naKiImwgcgEoxbtGNRxZtYtXSM9EUMXHDNJIxn51ER6Nb41bPcS8Q49r595HdpgEvop3NegggS9fokkTIpAIllzKv43v2xbyVYQ/gfiQZn1L11OHaQL6u3JxGSYe11un/vanjI6PaMMP2I/Ypq33e4mJImY52hkD481pnniCzfM=
-  file_glob: true
-  file: "./build/libs/JAlgoArena-Eureka-*.zip"
-  skip_cleanup: true
-  on:
-    repo: spolnik/JAlgoArena-Eureka
-    tags: true
+  - provider: releases
+    api_key:
+      secure: szOvA8ebcgVLl6vSiHCm2xkAPZ/2Cpna8Gc2lrUkIzblFcoEtmKsySiKXYruLqGA7G7vjHG6zExfea60eGUyP5QRdRvj6M0I9nIJlkHzkNccgDVLoPjNY8U3M7xIgRPoDtZ5QHwnC+mtxmzeotvovk8GYUZNmthi1EjChXTrsy3WFFDK0zQ0R96YLH/1EJ+vwHn22LCZx03ZJC6tOU/D7uoRSj9BcuzO0lSuc8Lh/E9o8Oj7NxLLMgca113BCMcS6I2h5pt2j0Bghww2Kry7OLc8PjZuh4FHVhHfdb5sklr+CzSldR62y2aC8ILz3QdxyBocwAUNRqdJkBRZGEyMHmoyirEDWJY88W7AEdKW2RVkyCdd9Z7U811NTU81gsl7xFIN8N+M8hKvaYUA/9Yp75pR4wl6aS1rEM9mL9JsvlE9SoFa0xgCirnStJIXeVaIecSR9kldXUJPJSgVKS589L1cDRXSQNbfab03uVDBj5ykk6Driiz7wCvjuQQ6WYz+naKiImwgcgEoxbtGNRxZtYtXSM9EUMXHDNJIxn51ER6Nb41bPcS8Q49r595HdpgEvop3NegggS9fokkTIpAIllzKv43v2xbyVYQ/gfiQZn1L11OHaQL6u3JxGSYe11un/vanjI6PaMMP2I/Ypq33e4mJImY52hkD481pnniCzfM=
+    file_glob: true
+    file: "./build/libs/JAlgoArena-Eureka-*.zip"
+    skip_cleanup: true
+    on:
+      repo: spolnik/JAlgoArena-Eureka
+      tags: true
+  - provider: script
+    script: bash docker_push
+    on:
+      repo: spolnik/JAlgoArena-Eureka
+      tags: true
