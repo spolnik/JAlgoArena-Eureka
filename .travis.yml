@@ -1,7 +1,4 @@
-sudo: required
 language: Java
-services:
-  - docker
 jdk:
   - oraclejdk8
 before_cache:
@@ -19,11 +16,6 @@ deploy:
     file_glob: true
     file: "./build/libs/JAlgoArena-Eureka-*.zip"
     skip_cleanup: true
-    on:
-      repo: spolnik/JAlgoArena-Eureka
-      tags: true
-  - provider: script
-    script: bash docker_push
     on:
       repo: spolnik/JAlgoArena-Eureka
       tags: true
