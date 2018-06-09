@@ -1,3 +1,5 @@
+> **DEPRECATED**
+
 # JAlgoArena Eureka [![Build Status](https://travis-ci.org/spolnik/JAlgoArena-Eureka.svg?branch=master)](https://travis-ci.org/spolnik/JAlgoArena-Eureka) [![GitHub release](https://img.shields.io/github/release/spolnik/jalgoarena-eureka.svg)]()
 
 JAlgoArena Eureka is Discovery service for all backend JAlgoArena services. It's created based on Netflix Eureka with usage of Spring Boot and Spring Cloud.
